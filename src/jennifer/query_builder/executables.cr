@@ -51,10 +51,12 @@ module Jennifer
       end
 
       def delete
+        return if @do_nothing
         adapter.delete(self)
       end
 
       def exists?
+        return false if @do_nothing
         adapter.exists?(self)
       end
 
