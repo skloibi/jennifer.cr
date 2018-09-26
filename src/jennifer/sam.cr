@@ -45,7 +45,7 @@ Sam.namespace "db" do
     end
   end
 
-  desc "Prints version of last runned migration"
+  desc "Prints version of last run migration"
   task "version" do
     version = Jennifer::Migration::Version.all.last
     if version

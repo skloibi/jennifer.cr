@@ -1,6 +1,6 @@
 module Jennifer
   module QueryBuilder
-    abstract class LogicOperator
+    abstract class LogicOperator < SQLNode
       module Operators
         def &(other : Criteria)
           And.new(self, other.to_condition)
@@ -74,7 +74,18 @@ module Jennifer
       end
 
       def ==(other : LogicOperator)
-        @lhs == other.lhs && @rhs == other.rhs
+        eql?(other)
+      end
+
+      def eql?(other : LogicOperator)
+        # if @lhs.is_a?(LogicOperator) && @rhs.is
+        # elsif @lhs.is_a?(Condition)
+        # elsif @lhs.is_a?(Grouping)
+        # elsif @lhs.is_a?(Criteria)
+        # else
+        #   false
+        # end
+        @lhs.eql?(other.lhs) && @rhs.eql?(other.rhs)
       end
     end
 

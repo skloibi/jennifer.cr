@@ -17,6 +17,13 @@ module Jennifer
 
       def_hash @field, @table
 
+      def eql?(other : Criteria)
+        field == other.field &&
+          table == other.table &&
+          relation == other.relation &&
+          self.alias == other.alias
+      end
+
       def set_relation(table : String, name : String)
         @relation = name if @relation.nil? && @table == table
       end

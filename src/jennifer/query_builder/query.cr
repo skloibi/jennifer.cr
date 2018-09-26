@@ -53,6 +53,10 @@ module Jennifer
         initialize
       end
 
+      def do_nothing?
+        @do_nothing
+      end
+
       def self.null
         new.none
       end

@@ -5,6 +5,10 @@ module Jennifer
       abstract def sql_args : Array
       abstract def filterable?
 
+      def eql?(other)
+        false
+      end
+
       def as_sql
         as_sql(Adapter.default_adapter.sql_generator)
       end
